@@ -1,0 +1,218 @@
+#loading{
+      position:fixed;
+      opacity:0.4;
+      top:0;
+      width:100%;
+      height:100%;
+      text-align:center;
+      background-color: #cacaca;
+      display:none;
+      z-index:10;
+  }
+
+  .modal-dialog{
+      width:60%;
+  }
+
+  .lightBox {
+      position: fixed;
+      width: 100%;
+      top:0;
+      height: 100%;
+      background-color:rgba(56, 56, 56, 0.50);
+      display: none;
+      z-index: 4;
+  }
+
+  #DivModalDin{
+      position: absolute;
+      z-index: 5;
+      top:10%;
+      margin:1%;
+      left:12%;
+      border-radius:4px;
+      border: 1px Solid #cccccc;
+      width:75%;
+      height:auto;
+      display:none;
+      background: #fff;
+    }
+
+  #tblcloseBar{
+      border-bottom:1px solid #cccccc;
+      width:100%;
+      height:35px;
+  }
+
+  #tblcloseBar #tblTitle{
+    text-align:center;
+    margin-top:5px;
+    margin-bottom:5px;
+    color:#777;
+    font-size:16px;
+  }
+
+  #btnClose{
+    float:right;
+    cursor:pointer;
+    margin-top:5px;
+    margin-bottom:5px;
+    margin-right:7px;
+  }
+
+  #btnClose:hover{
+    opacity: 0.8;
+  }
+
+  #DivContent{
+    margin:2%;
+    //border: 1px solid black;
+    height:auto;
+  }
+
+  .grey, .grey a { color: #808080; }
+
+  .animated {
+   -webkit-animation-duration: 2s;
+   animation-duration: 2s;
+   -webkit-animation-fill-mode: both;
+   animation-fill-mode: both;
+  }
+
+  @-webkit-keyframes flash {
+   0%, 50%, 100% {
+   opacity: 1;
+   }
+  25%, 75% {
+   opacity: 0;
+   }
+  }
+  @keyframes flash {
+   0%, 50%, 100% {
+   opacity: 1;
+   }
+  25%, 75% {
+   opacity: 0;
+   }
+  }
+  .flash {
+   -webkit-animation-name: flash;
+   animation-name: flash;
+  }
+
+  .divContador{
+    float: right;
+    position: absolute;
+    margin-top: 8px;
+    margin-left: 8px;
+    height: 18px;
+    width: 18px;
+    border-radius: 9px;
+    background-color: #337ab7;
+    color: white;
+    text-align: center;
+    cursor: pointer;
+    padding: 4px 0.5px 0px 1px ;
+  }
+
+  .divIconoNot{
+    padding: 0px;
+    height: 8px;
+    width: 8px;
+    border-radius: 4px;
+    background-color: #337ab7;
+    vertical-align: middle;
+    color: white;
+    text-align: center;
+  }
+
+  .imgNotify{
+    cursor: pointer;
+    margin-right:10px;
+    margin-top:14px;
+  }
+  .numeroNot{
+    font-weight: bold;
+    font-size: 9px;
+    margin-top: 20px;
+    margin-left: 0px;
+  }
+
+  .listaFija{
+    height: 285px;
+    width: 350px;
+    padding: 0%;
+    overflow-y: auto;
+  }
+
+  .liBotLinea{
+    padding: 10px;
+    border-bottom: 2px solid #dddddd;
+  }
+
+  .liBotLinea:hover{
+    background-color: #f8f8f8;
+    cursor: pointer;
+  }
+
+  #img_audiencia{
+    cursor: pointer;
+  }
+
+  #divListaAudi{
+    height: 319px;
+    margin-left: 1%;
+    margin-bottom: 2%;
+    float: right;
+    overflow-y: scroll;
+  }
+
+  .liHeader{
+    background-color: #272e7a;
+    color: white;
+    padding: 6px 0px 2px 5px;
+    position: sticky;
+    position: -webkit-sticky;
+    top:0;
+  }
+
+  #tblListaAudi thead{
+    position: sticky;
+    position: -webkit-sticky;
+    top:0;
+    background: white;
+  }
+
+  #imgMAL{
+    margin-left: 5px;
+  }
+
+  #imgOK{
+    margin-right: 5px;
+  }
+
+  .grey, .grey a { color: #808080; }
+
+  #detalleEmpleado{
+    display: none;
+    z-index: 2;
+    float: inherit;
+    position: absolute;
+    border:1px solid #808080;
+    border-radius: 4px;
+    background-color: #f9f9f9;
+    padding: 12px;
+  }
+  #user-info{
+    cursor: pointer;
+    margin-right: 5px;
+    margin-bottom: 4px;
+  }
+
+  #user-info:hover{
+    opacity: .8;
+  }
+
+  #ExpedienteD{
+    display: none;
+  }
