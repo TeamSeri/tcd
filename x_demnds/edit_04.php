@@ -584,6 +584,16 @@ function checkInput(ob)
 
 </form>
 
+<!-- Codigo nuevo Actualiza el monto de cierre al escribirlo -->
+<script type="text/javascript">
+  document.addEventListener('DOMContentLoaded', () => {
+    const monto = document.getElementsByName('Monto');
+    monto[0].addEventListener('keyup', () => {
+      document.getElementById('cierre').value = monto[0].value;
+    });
+  });
+</script>
+
 <?php
      $qry = "   select * "
           . "     from T802_EMPRESAS union select 0,0,'NO ASIGNADA',3,'2019-05-03 14:06:38.607' order by CD_EMPRESA ";
