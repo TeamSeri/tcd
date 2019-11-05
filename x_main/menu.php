@@ -393,6 +393,12 @@ else
 
     if(validaFecha(fecha,accion) == true){
       if (r == true && 1==1 ) {
+        // console.log('Tipo: ' + String(tipo));
+        // console.log('Folio: ' + String(folio));
+        // console.log('Fecha: ' + String(fecha));
+        // console.log('Hora: ' + String(hora));
+        // console.log('Comentarios: ' + String(comments));
+        // console.log('Trabajador: ' + String(trabaja));
         $.ajax({
           url: '../x_demnds/ValidaCuantificacion.php',
           data: {folio:      folio, 
@@ -405,6 +411,7 @@ else
                  },
           type: 'POST',
           success: function(data){
+            console.log(data);
             $("#tblcloseBar #tblTitle").html(htmlTitle);
             $("#DivContent").html(data);
             $('[data-toggle="tooltip"]').tooltip();

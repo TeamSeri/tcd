@@ -22,13 +22,31 @@
         $comments = "TX_COMENTARIOS = convert(varchar(8000), TX_COMENTARIOS) + '<br/><br/>" . $rs['COMENTARIOS'] . "', ";
       }
 
-    if($_REQUEST['FH_CIERRE']!='')
-      {
-         $fh_cierre = " FH_CIERRE = '" . $_REQUEST['FH_CIERRE'] . "', ";
+      $idrecibd = $_GET['id'];
+
+      if ($_POST['FH_INICIO'] != "") {
+        $queryfechainicioupd = "UPDATE T002_DEMANDAS SET FH_INICIO = '". $_POST['FH_INICIO'] ."' WHERE NU_FOLIO = $idrecibd ";
+        $csinicio = $db -> prepare($queryfechainicioupd);
+        $resultadoinicio = $csinicio->execute();
       }
-    else
-      {
-         $fh_cierre = "";
+
+      if ($_POST['FH_INGRESO'] != "") {
+        $queryfechaingresoupd = "UPDATE T002_DEMANDAS SET FH_INGRESO = '". $_POST['FH_INGRESO'] ."' WHERE NU_FOLIO = $idrecibd ";
+        $csingreso = $db->prepare($queryfechaingresoupd);
+        $resultadoingreso = $csingreso->execute();
+      } 
+      
+
+      if ($_POST['FH_BAJA'] != ""){
+        $queryfechabajaupd = "UPDATE T002_DEMANDAS SET FH_BAJA = '".$_POST['FH_BAJA']."' WHERE NU_FOLIO = $idrecibd ";
+        $csbaja = $db->prepare($queryfechabajaupd);
+        $resultadobaja = $csbaja->execute();
+      }
+
+      if ($_POST['FH_CIERRE'] != "") {
+        $queryfechacierreupd = "UPDATE T002_DEMANDAS SET FH_CIERRE = '".$_POST['FH_CIERRE']."' WHERE NU_FOLIO = $idrecibd ";
+        $cscierre = $db->prepare($queryfechacierreupd);
+        $resultadocierre = $cscierre->execute();
       }
 
     $qry = "   update T002_DEMANDAS set NU_DESPACHO                =  " . "      '" . iconv("utf-8", "WINDOWS-1252", trim(str_ireplace($anti_injeccion, '', str_ireplace('  ', ' ', $_REQUEST['DESPACHO']      )))) . "',  "
@@ -40,8 +58,6 @@
          . "                            CD_DEMANDADOS              =  " . "      '" . iconv("utf-8", "WINDOWS-1252", trim(str_ireplace($anti_injeccion, '', str_ireplace('  ', ' ', $_REQUEST['DEMANDADOS']    )))) . "',  "
          . "                            NU_SUCURSAL                =  " . "      '" . iconv("utf-8", "WINDOWS-1252", trim(str_ireplace($anti_injeccion, '', str_ireplace('  ', ' ', $_REQUEST['SUCURSAL']      )))) . "',  "
          . "                            NU_ESTADO_REP              =  " . "      '" . iconv("utf-8", "WINDOWS-1252", trim(str_ireplace($anti_injeccion, '', str_ireplace('  ', ' ', $_REQUEST['ESTADO']      )))) . "',  "
-         . "                            FH_INICIO                  =  " . "      '" . iconv("utf-8", "WINDOWS-1252", trim(str_ireplace($anti_injeccion, '', str_ireplace('  ', ' ', $_REQUEST['FH_INICIO']     )))) . "',  "
-         .                              $fh_cierre
          . "                            CD_EXPEDIENTE              =  " . "      '" . iconv("utf-8", "WINDOWS-1252", trim(str_ireplace($anti_injeccion, '', str_ireplace('  ', ' ', $_REQUEST['EXPEDIENTED']    )))) . "',  "
          . "                            CD_CEXPEDIENTE             =  " . "      '" . iconv("utf-8", "WINDOWS-1252", trim(str_ireplace($anti_injeccion, '', str_ireplace('  ', ' ', $_REQUEST['EXPEDIENTEC']    )))) . "',  "
          . "                            NU_PROPUESTA_TRABAJADOR    =  " . "      '" . iconv("utf-8", "WINDOWS-1252", trim(str_ireplace($anti_injeccion, '', str_ireplace('  ', ' ', $_REQUEST['PROPUESTA']     )))) . "',  "
