@@ -26,10 +26,14 @@
                     . "        <th style='width:15%'><small>FH_INICIO</small></th>"
                     . "        <th style='width:10%'><small>HORA</small></th>"
                     . "        <th style='width:55%'><small>Detalle</small></th>"
-                    . "        <th style='width:15%'><small>ESTATUS</small></th>"
-                    . "      </tr>"
-                    . "    </thead>"
-                    . "    <tbody>";
+                    . "        <th style='width:15%'><small>ESTATUS</small></th>";
+    if ($_SESSION['rh_legal_perfil'] == 1) {
+      $string .= " <th><small>Accion</small></th>";
+    }
+
+    $string .=  "      </tr>"
+    . "    </thead>"
+    . "    <tbody>";
 
     switch($_POST['caso']){
        case 1:
@@ -128,6 +132,14 @@
               }else{
                 $string .= "<td style='vertical-align: middle;text-align:center;'><img src='../imagenes/mal.png' width='20px' height='20px' data-toggle='tooltip' data-placement='bottom' title='No celebrada ".$result["COMMFINAL"]."'/></td>";
               }
+
+              # INICIO CAMBIO OCULTA DETALLES DE AUDIENCIAS #
+              if ($_SESSION['rh_legal_perfil'] == 1) {
+                $string .= "<td style='text-align:center !important;'> <button type='button' onclick='hidereg(".$result["NU_FOLIO"].",".$result["NU_AUDIENCIA"].")' style='margin-top:1em !important;' class='btn btn-sm btn-danger'>&#10006;</button> </td>";
+              }
+
+              # FIN CAMBIO OCULTA DETALLES DE AUDIENCIAS #
+
               $string .= "</tr>";
             }
 

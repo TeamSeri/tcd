@@ -377,7 +377,7 @@ else
   function showAudi(tipo,folio,trabajador){
     trabaja = trabajador;
     $("#DivModalDin, .lightBox").show();
-    var htmlTitle   = "Audiencias de: <b>" + trabajador + "</b>";
+    var htmlTitle   = "Audiencias de: <b id='nomtr'>" + trabajador + "</b>";
   
     var fecha    = $("#fh_audi").val()      || "", 
         hora     = $("#hr_audi").val()      || "", 
@@ -426,6 +426,31 @@ else
       $("#fh_audi").focus()
     }
   }
+
+function hidereg(folio, audiencia) {
+  const nomtr = document.getElementById('nomtr');
+  if (folio != null) {
+    try {
+      $.ajax({
+        url: "../x_demnds/functionsGen.php?oper=ocultaAudiencias",
+        type: "POST",
+        data: {folio: folio, audiencia: audiencia},
+        success: function(resp) {
+          if (resp == "actualizado") {
+            showAudi(0, folio, nomtr.textContent);
+          } else {
+            alert('Ocurrio un problema contacte a sistemas');
+            location.reload();
+          }
+        }, error: function(error) {
+          console.log(error);
+        }
+      });
+    } catch (error) {
+      console.log(error);
+    }
+  }
+}
 
 function validaAud(status,folio,audi){
   
