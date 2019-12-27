@@ -57,6 +57,7 @@
          . "                            NU_SUBSIDIARIA_05          =  " . "      '" . iconv("utf-8", "WINDOWS-1252", trim(str_ireplace($anti_injeccion, '', str_ireplace('  ', ' ', $_REQUEST['SUBSIDIARIA_05'])))) . "',  "
          . "                            CD_DEMANDADOS              =  " . "      '" . iconv("utf-8", "WINDOWS-1252", trim(str_ireplace($anti_injeccion, '', str_ireplace('  ', ' ', $_REQUEST['DEMANDADOS']    )))) . "',  "
          . "                            NU_SUCURSAL                =  " . "      '" . iconv("utf-8", "WINDOWS-1252", trim(str_ireplace($anti_injeccion, '', str_ireplace('  ', ' ', $_REQUEST['SUCURSAL']      )))) . "',  "
+         . "                            NU_PUESTO              =  " . "      '" . iconv("utf-8", "WINDOWS-1252", trim(str_ireplace($anti_injeccion, '', str_ireplace('  ', ' ', $_REQUEST['NU_PUESTO']      )))) . "',  "
          . "                            NU_ESTADO_REP              =  " . "      '" . iconv("utf-8", "WINDOWS-1252", trim(str_ireplace($anti_injeccion, '', str_ireplace('  ', ' ', $_REQUEST['ESTADO']      )))) . "',  "
          . "                            CD_EXPEDIENTE              =  " . "      '" . iconv("utf-8", "WINDOWS-1252", trim(str_ireplace($anti_injeccion, '', str_ireplace('  ', ' ', $_REQUEST['EXPEDIENTED']    )))) . "',  "
          . "                            CD_CEXPEDIENTE             =  " . "      '" . iconv("utf-8", "WINDOWS-1252", trim(str_ireplace($anti_injeccion, '', str_ireplace('  ', ' ', $_REQUEST['EXPEDIENTEC']    )))) . "',  "

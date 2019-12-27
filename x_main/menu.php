@@ -136,7 +136,7 @@ else
           <?php if($_SESSION['rh_legal_perfil']==1 || $_SESSION['rh_legal_perfil']==2) { ?>
           <li><a href="../x_demnds/alta_01.php">Alta</a></li>
           <?php } ?>
-          <?php if($_SESSION['rh_legal_perfil']==1 || $_SESSION['rh_legal_perfil']==2 ) { ?>
+          <?php if($_SESSION['rh_legal_perfil']==1 || $_SESSION['rh_legal_perfil']==2 || $_SESSION['rh_legal_usuario'] == 1 ) { ?>
           <li><a href="../x_demnds/edit_01.php">Edición</a></li>
           <?php } ?>
           <?php if($_SESSION['rh_legal_perfil']==1 || $_SESSION['rh_legal_perfil']==2) { ?>

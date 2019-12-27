@@ -19,7 +19,8 @@
     $csF->execute();
     $rsF = $csF->fetch(PDO::FETCH_BOTH, PDO::FETCH_ORI_FIRST);
     
-    $fase = $rsF['FASE'];
+	$fase = $rsF['FASE'];
+	$icono = "";
 
 
     if(isset($_REQUEST['st']))
@@ -50,8 +51,9 @@
 
          $cs = $db->prepare($qry, array(PDO::ATTR_CURSOR => PDO::CURSOR_SCROLL));
          $cs->execute();
-         $rs = $cs->fetch(PDO::FETCH_BOTH, PDO::FETCH_ORI_FIRST);
-
+		 $rs = $cs->fetch(PDO::FETCH_BOTH, PDO::FETCH_ORI_FIRST); 
+		 
+		 if($_REQUEST['et'] == "00" && $rs['SN_FASE_00'] == 0) { $texto = "Convertir citatorio a demanda"; }
          if($_REQUEST['et'] == "01" && $rs['SN_FASE_01'] == 1) { $icono = "verde"; $texto = "Fase Exitosa"; }
          if($_REQUEST['et'] == "02" && $rs['SN_FASE_02'] == 1) { $icono = "verde"; $texto = "Fase Exitosa"; }
          if($_REQUEST['et'] == "03" && $rs['SN_FASE_03'] == 1) { $icono = "verde"; $texto = "Fase Exitosa"; }
@@ -71,7 +73,6 @@
          if($_REQUEST['et'] == "07" && $rs['SN_FASE_07'] == 2) { $icono = "rojo"; $texto = "Fase Rechazada"; }
          if($_REQUEST['et'] == "08" && $rs['SN_FASE_08'] == 2) { $icono = "rojo"; $texto = "Fase Rechazada"; }
          if($_REQUEST['et'] == "09" && $rs['SN_FASE_09'] == 2) { $icono = "rojo"; $texto = "Fase Rechazada"; }
-
       }
 
 ?>

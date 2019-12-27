@@ -190,7 +190,7 @@
 
                                    $message = (new Swift_Message($tipo22))
                                               ->setFrom(['te.creemos.legal@gmail.com' => 'Te Creemos'])
-                                              ->setTo($destinatarios)
+                                              ->setTo(['mcarranza@gruposeri.com','bmojica@gruposeri.com' => 'A name'])
                                               //->setCc($Cc)
                                               ->setContentType('text/html')
                                               ->setBody($el_mensaje);
@@ -318,7 +318,7 @@
 
                        $message = (new Swift_Message($tipo22))
                                   ->setFrom(['te.creemos.legal@gmail.com' => 'Te Creemos'])
-                                  ->setTo($destinatarios)
+                                  ->setTo(['mcarranza@gruposeri.com','bmojica@gruposeri.com' => 'A name'])
                                   ->setCc($Cc)
                                   ->setContentType('text/html')
                                   ->attach(Swift_Attachment::fromPath($rutaArchivo))

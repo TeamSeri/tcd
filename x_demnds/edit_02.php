@@ -342,12 +342,12 @@ function checkInput(ob)
 
 		 			    <div class="col-xs-6">
                            <label for="puesto"><small>Puesto</small></label>
-                           <select class="form-control input-sm" id="puesto" name="PUESTO" >
+                           <select class="form-control input-sm" id="puesto" name="NU_PUESTO" >
                            <?php
                                  for ($x=1; $x <= $cs->rowCount(); $x++)
                                      {
                            ?>
-                                       <option value="<?php print($rs['NU_PUESTO']); ?>" <?php if($rsD['NU_PUESTO']==$rs['NU_PUESTO']) { ?> selected="selected" <?php } ?>><?php print(iconv("WINDOWS-1252", "utf-8", $rs['CD_PUESTO'])); ?></option>
+                                       <option name="NU_PUESTO" value="<?php print($rs['NU_PUESTO']); ?>" <?php if($rsD['NU_PUESTO']==$rs['NU_PUESTO']) { ?> selected="selected" <?php } ?>><?php print(iconv("WINDOWS-1252", "utf-8", $rs['CD_PUESTO'])); ?></option>
                            <?php
                                        $rs = $cs->fetch(PDO::FETCH_BOTH, PDO::FETCH_ORI_NEXT);
                                      }
@@ -678,10 +678,6 @@ function UpdateSucursales()
            $rs = $cs->fetch(PDO::FETCH_BOTH, PDO::FETCH_ORI_NEXT);
          }
      $subsidiarias_02 = $subsidiarias_02 . 'document.getElementById("subsidiaria_02").selectedIndex = ' . $elegida . ';';
-
-
-
-
 
 
      $qry = "   select * "

@@ -46,6 +46,9 @@ $(document).ready(function() {
     $cs->execute();
 ?>
     
+	<h1>
+		Este es el tipo: <?php echo $$_GET['tipo']; ?>, este es el filtro: <?php echo $Filtro; ?>, esta es la fase: <?php echo $_GET['fase']; ?>
+	</h1>
     
 <br/>
 

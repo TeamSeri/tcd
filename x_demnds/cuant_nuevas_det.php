@@ -90,11 +90,11 @@ $(document).ready(function() {
       <td style="width:150px" valign="top">
        <div class="form-group">
           <div class="radio">
-              <label><input type="radio" onclick="submitForm()" id="tipo" name="tipo" value="1" <?php if($_REQUEST['tipo']==1) { ?> checked="checked" <?php } ?> style="height:20px"/>Demanda</label>
+              <label><input type="radio" onclick="submitForm()" id="tipo" name="tipo" value="1" <?php if($_GET['tipo']==1) { ?> checked="checked" <?php } ?> style="height:20px"/>Demanda</label>
           </div>
           <div class="radio">
                 <label>
-  			  <input type="radio" onclick="submitForm()" id="tipo" name="tipo" value="2" <?php if($_REQUEST['tipo']==2) { ?> checked="checked" <?php } ?> />Real</label>
+  			  <input type="radio" onclick="submitForm()" id="tipo" name="tipo" value="2" <?php if($_GET['tipo']==2) { ?> checked="checked" <?php } ?> />Real</label>
               </div>
         </div>
   		</td>
@@ -124,10 +124,10 @@ $(document).ready(function() {
 
 <table align="center" cellpadding="0" cellspacing="0" style="width: 1200px" border="0">
 <?php
-  if($_POST['tipo'] == 2){
-    $qry = "sp_Demandas_Consulta_Demanda_Cuantificaciones_Detalle_Real 2," . $_REQUEST['fo'] . ", ". $_REQUEST['ex'] . " ";
+  if($_GET['tipo'] == 2){
+    $qry = "sp_Demandas_Consulta_Demanda_Cuantificaciones_Detalle_Real 2," . $_GET['fo'] . ", ". $_GET['ex'] . " ";
   }else{
-    $qry = "sp_Demandas_Consulta_Demanda_Cuantificaciones_Detalle 2," . $_REQUEST['fo'] . ", ". $_REQUEST['ex'] . " ";
+    $qry = "sp_Demandas_Consulta_Demanda_Cuantificaciones_Detalle 2," . $_GET['fo'] . ", ". $_GET['ex'] . " ";
   }
   $cs = null;
   $cs = $db->prepare($qry);
@@ -231,12 +231,13 @@ $(document).ready(function() {
   <tr><td>&nbsp;</td></tr>
   <tr>
     <td>
+    <h1> Este es el tipo <?php echo $_GET['tipo']; ?> </h1>
       <div class="content">
         <?php
-          if($_POST['tipo'] == 2){
-            $qry = "sp_Demandas_Consulta_Demanda_Cuantificaciones_Detalle_Real 1," . $_REQUEST['fo'] . ", ". $_REQUEST['ex'] . " ";
+          if($_GET['tipo'] == 2){
+            $qry = "sp_Demandas_Consulta_Demanda_Cuantificaciones_Detalle_Real 1," . $_GET['fo'] . ", ". $_GET['ex'] . " ";
           }else{
-            $qry = "sp_Demandas_Consulta_Demanda_Cuantificaciones_Detalle 1," . $_REQUEST['fo'] . ", ". $_REQUEST['ex'] . " ";
+            $qry = "sp_Demandas_Consulta_Demanda_Cuantificaciones_Detalle 1," . $_GET['fo'] . ", ". $_GET['ex'] . " ";
           }
           $cs = null;
           $cs = $db->prepare($qry);
@@ -304,9 +305,9 @@ $(document).ready(function() {
     <tr>
       <td align='center'>
         <?php if ($Hoy === 0 ) { ?>
-                  <button class='btn btn-primary animated flash' type="button" onclick="fjsToRecuant(<?php echo $_REQUEST['fo']?>,<?php echo (isset($_POST['tipo']) ? $_POST['tipo'] : $_REQUEST['tipo']) ?>)">Recuantificar</button>
+                  <button class='btn btn-primary animated flash' type="button" onclick="fjsToRecuant(<?php echo $_REQUEST['fo']?>,<?php echo (isset($_POST['tipo']) ? $_POST['tipo'] : $_GET['tipo']) ?>)">Recuantificar</button>
         <?php }else{ ?>
-                  <button class='btn btn-primary'                type="button" onclick="fjsToRecuant(<?php echo $_REQUEST['fo']?>,<?php echo (isset($_POST['tipo']) ? $_POST['tipo'] : $_REQUEST['tipo']) ?>)">Recuantificar</button>
+                  <button class='btn btn-primary'                type="button" onclick="fjsToRecuant(<?php echo $_REQUEST['fo']?>,<?php echo (isset($_POST['tipo']) ? $_POST['tipo'] : $_GET['tipo']) ?>)">Recuantificar</button>
         <?php } ?>
       </td>
     </tr>

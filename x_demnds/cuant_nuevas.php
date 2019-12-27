@@ -56,7 +56,6 @@ function isNumberKey(evt)
     $csFil->execute();
 ?>
     
-    
 <br/>
 
 <table align="center" cellpadding="0" cellspacing="0" style="width: 700px;">

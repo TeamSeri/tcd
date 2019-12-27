@@ -3,7 +3,7 @@
 
 <table align="center" cellpadding="0" cellspacing="0" style="width: 700px">
 	<tr>
-		<td><h4>Reportes - Exportar</h4></td>
+		<td><h4>Reportes - Exportar <?php echo $_SESSION['rh_legal_filtro_despacho']; ?> </h4></td>
 	</tr>
 </table>
 

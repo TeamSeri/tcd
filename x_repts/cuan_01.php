@@ -324,7 +324,7 @@ $link = "?tipo=" . $d_tipo . "&st=" . $d_st . "&cat=" . $d_cat . "&ex=" . $d_ex 
 
 ?>
 						<tr>
-							<td><small><small><?php print(iconv("WINDOWS-1252", "utf-8",$rs['AGRUPACION'])); ?></small></small></td>
+							<td><small><small>hola<?php print(iconv("WINDOWS-1252", "utf-8",$rs['AGRUPACION'])); ?></small></small></td>
 							<td align="right"><small><small><a href="cuan_det.php<?php print($link . '01' . '&agrup=' . $rs['AGRUPACION']); ?>"><?php print(number_format($importe_01)); ?></a></small></small></td>
 							<td align="right"><small><small><a href="cuan_det.php<?php print($link . '02' . '&agrup=' . $rs['AGRUPACION']); ?>"><?php print(number_format($importe_02)); ?></a></small></small></td>
 							<td align="right"><small><small><a href="cuan_det.php<?php print($link . '03' . '&agrup=' . $rs['AGRUPACION']); ?>"><?php print(number_format($importe_03)); ?></a></small></small></td>

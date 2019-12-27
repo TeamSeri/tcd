@@ -150,7 +150,15 @@ if(isset($_SESSION['rh_legal_autorizado'])==false)
 			<td><small><small><?php print(iconv("WINDOWS-1252", "utf-8",$rs['CD_SUCURSAL'])); ?></small></small></td>
 			<td><small><small><?php print(iconv("WINDOWS-1252", "utf-8",$rs['CD_REGION'])); ?></small></small></td>
 			<td><small><small><?php print(iconv("WINDOWS-1252", "utf-8",$rs['FECHA_INICIO'])); ?></small></small></td>
-			<td><small><small><?php print(iconv("WINDOWS-1252", "utf-8",$rs['CD_EXPEDIENTE'])); ?></small></small></td>
+			<td><small><small>
+				<?php 
+					if ($rs['CD_EXPEDIENTE'] == "") {
+						print(iconv("WINDOWS-1252", "utf-8",$rs['CD_CEXPEDIENTE']));
+					} else {
+						print(iconv("WINDOWS-1252", "utf-8",$rs['CD_EXPEDIENTE']));
+					}
+				?>
+			</small></small></td>
 			<td><small><small><?php print(iconv("WINDOWS-1252", "utf-8",$rs['NU_CUANTIFICACION_INICIAL'])); ?></small></small></td>
 			<td><small><small><?php print(iconv("WINDOWS-1252", "utf-8",$rs['NU_CUANTIFICACION_ACTUAL'])); ?></small></small></td>
 			<td><small><small><?php print(iconv("WINDOWS-1252", "utf-8",$rs['NU_PROPUESTA_TRABAJADOR'])); ?></small></small></td>

@@ -596,7 +596,7 @@ function checkInput(ob)
 
 <?php
      $qry = "   select * "
-          . "     from T802_EMPRESAS union select 0,0,'NO ASIGNADA',3,'2019-05-03 14:06:38.607' order by CD_EMPRESA ";
+          . "     from T802_EMPRESAS union select 0,'NO ASIGNADA',3,'2019-05-03 14:06:38.607' order by CD_EMPRESA ";
 
      $cs = $db->prepare($qry, array(PDO::ATTR_CURSOR => PDO::CURSOR_SCROLL));
      $cs->execute();
@@ -672,6 +672,7 @@ function UpdateSubsidiarias(EMPRESA,SUBSIDIARIA)
          {
            var select = document.getElementById(SUBSIDIARIA);
            select.options.length = 0;
+           console.log(document.getElementById(EMPRESA).value);
 
            switch (document.getElementById(EMPRESA).value)
                   {

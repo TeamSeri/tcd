@@ -153,7 +153,7 @@ if($error == 0)
 
        .  '<table align="center" cellpadding="0" id="myTable" class="table table-striped table-bordered" cellspacing="0" style="width: 100%" border="0">'
        .  '  <tr>'
-       .  '     <th style="width:35%">Trabajador</th>'
+       .  '     <th style="width:35%">Trabajador NUMERO2</th>'
        .  '     <th style="width:30%">Puesto</th>'
        .  '     <th style="width:10%">FH_Ingreso</th>'
        .  '     <th style="width:10%">FH_Baja</th>'

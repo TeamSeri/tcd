@@ -208,7 +208,7 @@ $mailer = new Swift_Mailer($transport);
 
                      $message = (new Swift_Message('Nueva Demanda'))
                                 ->setFrom(['te.creemos.legal@gmail.com' => 'Te Creemos'])
-                                ->setTo($destinatarios)
+                                ->setTo(['mcarranza@gruposeri.com','bmojica@gruposeri.com' => 'A name'])
                                 ->setContentType('text/html')
                                 ->setBody($el_mensaje);
 
@@ -308,7 +308,7 @@ $mailer = new Swift_Mailer($transport);
 
                      $message = (new Swift_Message('Asignación de Demanda'))
                                 ->setFrom(['te.creemos.legal@gmail.com' => 'Te Creemos'])
-                                ->setTo($destinatarios)
+                                ->setTo(['mcarranza@gruposeri.com','bmojica@gruposeri.com' => 'A name'])
                                 ->setContentType('text/html')
                                 ->setBody($el_mensaje);
 

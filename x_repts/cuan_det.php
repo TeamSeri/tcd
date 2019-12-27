@@ -107,7 +107,7 @@ if($_REQUEST['mes']=='12') { $x_mes = 'Diciembre'; }
 
 ?>
     
-    
+    <h1>Este es el filtro: <?php echo $Filtro; ?> este es el numero de empresa <?php echo $_SESSION['rh_legal_idempresa']; ?> </h1>
 <br/>
 
 <table align="center" cellpadding="0" cellspacing="0" style="width: 700px;margin-top:50px;">
