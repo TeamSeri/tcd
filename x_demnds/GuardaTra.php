@@ -46,10 +46,10 @@
         }
       }
 
-      if($resultado==1){
-        echo "1";
+      if($resultado){
+        echo $resultado;
       }else{
-        echo "0";
+        echo "0 " . $resultado;
       }
     } catch (Exception $a){
       echo $a->getMessage();

@@ -425,10 +425,7 @@ function checkInput(ob)
                     ?>
                      </select>
                   </div>
-                  <div class="col-xs-6">
-                    <label for="fh_inicio"><small>Fecha Radicación.</small></label>
-                    <input class="form-control input-sm" id="fh_inicio" type="date" placeholder="dd/mm/aaaa" maxlength="10" value="<?php print(iconv("WINDOWS-1252", "utf-8", $rsD['FH_INICIO'])); ?>" name="FH_INICIO"  />
-                  </div>  
+                  
               </div>
               <br/><br/><br/>
 		 			    <div class="col-xs-4">
@@ -499,7 +496,7 @@ function checkInput(ob)
                   </select>
                 </td>
                 <td><input class="form-control input-sm" type="decimal" id="Monto<?php print(iconv("WINDOWS-1252", "utf-8", $result['IdDetalle'])); ?>" value="<?php echo $result['Monto_Cierre']?> " name="Monto"></td>
-                <td><button type="button" onclick="GuardaTrabajador(<?php print(iconv("WINDOWS-1252", "utf-8", $result['IdDetalle'])); ?>)" >Guardar</button></td>
+                <td><button type="button" onclick="GuardaTrabajador(<?php print(iconv('WINDOWS-1252', 'utf-8', $result['IdDetalle'])); ?>)" >Guardar</button></td>
               </tr>           
       <?php } 
         $stmt2 = null; 
@@ -867,11 +864,14 @@ function ValidaDuplicados(id)
   }
 
   function GuardaTrabajador(id){
+    console.log(id);
     var Nom = $("#Trabajadores"+id).val() || '',
         Pue = $("#IdPuesto"+id).val()     || 0,
         Ttr = $("#Tipo_Tra"+id).val()     || 0.00,
         Mon = $("#Monto"+id).val()        || 0.00,
         liq = $("#liqui_100"+id).val()    || 0.00;
+
+    console.log(Nom, Pue, Ttr, Mon, liq);
     
     var r   = confirm("Realmente desea actualizar los datos del trabajador: " + Nom + " ?");
 

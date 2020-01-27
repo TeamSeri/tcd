@@ -565,7 +565,12 @@ function validaFecha(fecha,acc){
   y = n.getFullYear();
   m = n.getMonth() + 1;
   d = n.getDate();
-  let fechformat = y + "-" + m + "-" + d;
+  let fechformat;
+  if (m <= 9) {
+    fechformat = y + "-" + '0' + m + "-" + d;
+  } else {
+    fechformat = y + "-" + m + "-" + d;
+  }
   // console.log(fecha);
   // console.log(fechformat);
   if(acc == 0) {
