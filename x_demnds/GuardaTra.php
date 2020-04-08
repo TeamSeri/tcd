@@ -19,13 +19,16 @@
         $resultado = $cs->execute();
 
       }else{
-
         if(isset($_POST['Nombre'])){
-          
+          if(trim($_POST['Monto']) > 0 && trim($_POST['Monto']) != "") {
+            $monto = $_POST['Monto'];
+          } else {
+            $monto = 0;
+          }
           $qry = "update T002_DEMANDAS_DETALLE "
              . "   SET CD_TRABAJADOR    = '" . $_POST['Nombre'] . "', "
              . "       NU_PUESTO        = "  . $_POST['Puesto'] . ", "
-             . "       MONTO_CIERRE     = "  . $_POST['Monto'] . " "
+             . "       MONTO_CIERRE     = "  . $monto . " "
              . " WHERE NU_DETALLE_FOLIO = "  . $_POST['IdDetalle'] ." ";
           $cs = $db->prepare($qry);
           $resultado = $cs->execute();

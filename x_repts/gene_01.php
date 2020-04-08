@@ -56,11 +56,19 @@ $(document).ready(function() {
     $total = 0;
     while ($rs = $cs->fetch())
         {
-           $total = $total + $rs['CASOS'];
+           if ($rs["ESTATUS"] != "CIERRE") {
+            $total = $total + $rs['CASOS'];
+           }
 ?>
 						<tr>
-							<td><?php echo $rs['ESTATUS']; ?></td>
-							<td><center><a href="gene_det.php?fase=<?php print $rs['ESTATUS'] ?>&Cant=<?php print $rs['CASOS'] ?>&tipo=2"><?php print(iconv("WINDOWS-1252", "utf-8",$rs['CASOS'])); ?></a></center></td>
+              <?php 
+                if ($rs["ESTATUS"] != "CIERRE") {
+              ?>
+                <td><?php echo $rs['ESTATUS']; ?></td>
+							  <td><center><a href="gene_det.php?fase=<?php print $rs['ESTATUS'] ?>&Cant=<?php print $rs['CASOS'] ?>&tipo=2"><?php print(iconv("WINDOWS-1252", "utf-8",$rs['CASOS'])); ?></a></center></td>
+              <?php
+                }
+              ?>
 						</tr>
 <?php
         }

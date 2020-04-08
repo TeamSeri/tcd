@@ -40,8 +40,9 @@ $(document).ready(function() {
     $qry = "sp_Demandas_Consulta_Demandas_Edicion '" . $Filtro . "' ";
 
     $cs = $db->prepare($qry);
-    $cs->execute();
-    
+	$cs->execute();
+	
+	echo $Filtro;
 ?>
     
 <table align="center" cellpadding="0" cellspacing="0" style="width: 700px">

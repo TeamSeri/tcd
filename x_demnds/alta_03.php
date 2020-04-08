@@ -24,7 +24,8 @@
     if(strlen($_REQUEST['COMENTARIOS']) > 0)
       {
         $qry = " select '<b>'+CD_NOMBRE + ' ' + CD_APELLIDOS + ' - ' + convert(varchar(10), getdate(), 111) + ' ' + convert(varchar(5), getdate(), 108) + ': </b>' + '" . iconv("utf-8", "WINDOWS-1252", trim(str_ireplace($anti_injeccion, '', str_ireplace('  ', ' ', $_REQUEST['COMENTARIOS']   )))) . "' as COMENTARIOS from T001_USUARIOS where NU_ID_USUARIO = " . $_SESSION['rh_legal_usuario'];
-        $cs = $db->prepare($qry, array(PDO::ATTR_CURSOR => PDO::CURSOR_SCROLL));
+        $queryEncode = utf8_encode($qry);
+        $cs = $db->prepare($queryEncode, array(PDO::ATTR_CURSOR => PDO::CURSOR_SCROLL));
         $cs->execute();
         $rs = $cs->fetch(PDO::FETCH_BOTH, PDO::FETCH_ORI_FIRST);
       
@@ -73,6 +74,9 @@
          . "      '" . $file_name . "', "
          .        $_SESSION['rh_legal_usuario'] . ")";
 
+
+      echo $qry . "<br/>";
+
       $cs = $db->prepare($qry);
       $resultado = $cs->execute();
 
@@ -86,6 +90,8 @@
                                                    . iconv('utf-8', 'WINDOWS-1252',$_REQUEST['COMENTARIOSA']). "',"
                                                    . $_SESSION['rh_legal_usuario'] . ","
                                                    . $_REQUEST['AUDI'];
+      echo $proc."<br/>";
+
       $csProc  = $db->prepare($proc);
       $resProc = $csProc->execute();
       $csProc  = null;
@@ -98,6 +104,8 @@
            . "     WHERE a.NU_ID_USUARIO = " . $_SESSION['rh_legal_usuario'] . " "
            . "  ORDER by a.NU_FOLIO desc";
       
+      echo $qry."<br/>";
+
       $cs = $db->prepare($qry);
       $cs->execute();
       $rs = $cs->fetch();
@@ -118,6 +126,7 @@
       $correo = "Se envió el correo a los destinatarios indicados.";
       $qry = "select * from T807_CORREOS_ALTA where NU_ID in (0,1) and len(CD_CORREO) > 0 order by 1";
       $cs = $db->prepare($qry, array(PDO::ATTR_CURSOR => PDO::CURSOR_SCROLL));
+      
       $cs->execute();
       $rs = $cs->fetch(PDO::FETCH_BOTH, PDO::FETCH_ORI_FIRST);
       if($cs->rowCount()==2)
@@ -190,7 +199,7 @@
 
                                    $message = (new Swift_Message($tipo22))
                                               ->setFrom(['te.creemos.legal@gmail.com' => 'Te Creemos'])
-                                              ->setTo(['mcarranza@gruposeri.com','bmojica@gruposeri.com' => 'A name'])
+                                              ->setTo(['mcarranza@gruposeri.com'=> 'A name'])
                                               //->setCc($Cc)
                                               ->setContentType('text/html')
                                               ->setBody($el_mensaje);
@@ -318,7 +327,7 @@
 
                        $message = (new Swift_Message($tipo22))
                                   ->setFrom(['te.creemos.legal@gmail.com' => 'Te Creemos'])
-                                  ->setTo(['mcarranza@gruposeri.com','bmojica@gruposeri.com' => 'A name'])
+                                  ->setTo(['mcarranza@gruposeri.com' => 'A name'])
                                   ->setCc($Cc)
                                   ->setContentType('text/html')
                                   ->attach(Swift_Attachment::fromPath($rutaArchivo))
