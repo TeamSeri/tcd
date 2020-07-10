@@ -254,6 +254,7 @@ $(function() {
                                                                       else
                                                                          {
                                                                             msgChange($('#div-login-msg'), $('#icon-login-msg'), $('#text-login-msg'), "error", "glyphicon-remove", $valida /*"Clave o Contrasena Invalida."*/ );
+                                                                            console.log($valida);
                                                                          }
                                                                   }
                                                             }

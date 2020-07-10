@@ -76,7 +76,7 @@ if($error==0)
       $cs = $db->prepare($qry, array(PDO::ATTR_CURSOR => PDO::CURSOR_SCROLL));
       $cs->execute();
       $rs = $cs->fetch(PDO::FETCH_BOTH, PDO::FETCH_ORI_FIRST);
-
+ 
       if ($cs->rowCount()==1)
          {
             $_SESSION['rh_legal_autorizado'] = 1;
@@ -86,13 +86,10 @@ if($error==0)
             $_SESSION['rh_legal_despacho'] = $rs['NU_DESPACHO'];
             $_SESSION['rh_legal_perfil']   = $rs['NU_PERFIL'];
 
-            if($rs['NU_DESPACHO']==0)
-              {
+            if($rs['NU_DESPACHO']==0) {
                 $_SESSION['rh_legal_filtro_despacho']   = " and a.NU_DESPACHO > -1 ";
                 $_SESSION['rh_legal_filtro_despacho_X'] = " and   NU_DESPACHO > -1 ";
-              }
-            else
-              {
+              } else {
                 $_SESSION['rh_legal_filtro_despacho']   = " and a.NU_DESPACHO = " . $rs['NU_DESPACHO'] . " ";
                 $_SESSION['rh_legal_filtro_despacho_X'] = " and   NU_DESPACHO = " . $rs['NU_DESPACHO'] . " ";
               }
@@ -121,6 +118,7 @@ if($error==0)
                     {
                        $_SESSION['rh_legal_privilegios'][$x] = $rs['CD_PAGINA'];
                        $rs = $cs->fetch(PDO::FETCH_BOTH, PDO::FETCH_ORI_NEXT);
+                      //  echo $_SESSION['rh_legal_privilegios'][$x] . " ";
                     }
             /////////////PRIVILEGIOS DE ACCESO TERMINA///////////////
 

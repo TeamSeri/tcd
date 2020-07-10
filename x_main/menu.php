@@ -17,6 +17,7 @@ if($priv > 0)
    {} 
 else 
   {
+    echo $priv;
     header("Location: ../x_main/not_auth.php");
   }
 
@@ -133,7 +134,7 @@ else
      <li class="dropdown">
         <a class="dropdown-toggle" data-toggle="dropdown" href="#">Demandas y Conciliaciones<span class="caret"></span></a>
         <ul class="dropdown-menu">
-          <?php if($_SESSION['rh_legal_perfil']==1 || $_SESSION['rh_legal_perfil']==2) { ?>
+          <?php if($_SESSION['rh_legal_perfil']==1 || $_SESSION['rh_legal_perfil']==2 || $_SESSION['rh_legal_perfil'] == 5 || $_SESSION['rh_legal_perfil'] == 4) { ?>
           <li><a href="../x_demnds/alta_01.php">Alta</a></li>
           <?php } ?>
           <?php if($_SESSION['rh_legal_perfil']==1 || $_SESSION['rh_legal_perfil']==2 || $_SESSION['rh_legal_usuario'] == 1 ) { ?>
@@ -142,7 +143,7 @@ else
           <?php if($_SESSION['rh_legal_perfil']==1 || $_SESSION['rh_legal_perfil']==2) { ?>
           <li><a href="../x_demnds/docs_01.php">Documentos</a></li>
           <?php } ?>
-          <?php if($_SESSION['rh_legal_perfil']==1 || $_SESSION['rh_legal_perfil']==2 || $_SESSION['rh_legal_perfil']==3 || $_SESSION['rh_legal_perfil']==4 ) { ?>
+          <?php if($_SESSION['rh_legal_perfil']==1 || $_SESSION['rh_legal_perfil']==2 || $_SESSION['rh_legal_perfil']==3 || $_SESSION['rh_legal_perfil']==4 || $_SESSION['rh_legal_perfil'] == 5) { ?>
           <li><a href="../x_demnds/conc_01.php">Conciliaciones de Procuraduría</a></li>
           <?php } ?>
           <?php if($_SESSION['rh_legal_perfil']==1 || $_SESSION['rh_legal_perfil']==2 || $_SESSION['rh_legal_perfil']==3 || $_SESSION['rh_legal_perfil']==4 ) { ?>
@@ -157,7 +158,7 @@ else
           <li><a href="../x_demnds/auto_01.php">Autorizaciones</a></li>
           <li><a href="../x_demnds/audi_01.php">Audiencias</a></li>
           <?php } ?>
-        </ul>
+        </ul> 
       </li>
 
 

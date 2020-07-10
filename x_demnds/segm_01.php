@@ -265,6 +265,9 @@ $(document).ready(function() {
 						</tr>
 					</thead>
 					<tbody>
+          <?php 
+            echo $Filtro;
+          ?>
 <?php
     $qry = "sp_Demandas_Consulta_Demandas_Seguimiento '".$Filtro."' ";
     $cs = $db->prepare($qry);
